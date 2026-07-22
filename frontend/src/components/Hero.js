@@ -81,8 +81,12 @@ export default function Hero({ profile }) {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [handleMouseMove]);
 
+  const photoUrl = profile?.photo ? `http://localhost:5000${profile.photo}` : null;
+
   return (
     <section className="hero" id="hero" ref={heroRef}>
+      {photoUrl && <div className="hero-photo-bg"><img src={photoUrl} alt="" /></div>}
+      <div className="hero-photo-overlay" />
       <div className="hero-bg">
         <div className="hero-mesh hero-mesh-1" />
         <div className="hero-mesh hero-mesh-2" />
