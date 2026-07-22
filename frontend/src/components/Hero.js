@@ -42,9 +42,9 @@ function Particles() {
 
 function CounterRow() {
   const counters = [
-    { value: '50+', label: 'Projects' },
-    { value: '3+', label: 'Years Exp' },
-    { value: '30+', label: 'Clients' },
+    { value: '10+', label: 'Projects' },
+    { value: '1+', label: 'Years Exp' },
+    { value: '70+', label: 'Clients' },
     { value: '99%', label: 'Satisfaction' },
   ];
   return (

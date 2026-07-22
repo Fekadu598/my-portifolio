@@ -180,7 +180,7 @@ function PortfolioSite() {
       <ScrollToTop />
       <DynamicBackground />
       <div className="grain" />
-      <TopBar />
+      <TopBar profile={profile} />
       <main>
         <Hero profile={profile} />
         <About profile={profile} />

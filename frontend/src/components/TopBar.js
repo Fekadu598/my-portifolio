@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-export default function TopBar() {
+
+export default function TopBar({ profile }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('#hero');
+  const photoUrl = profile?.photo ? `http://localhost:5000${profile.photo}` : null;
 
   useEffect(() => {
     const onScroll = () => {
@@ -28,7 +30,17 @@ export default function TopBar() {
   return (
     <div className={`topbar${scrolled ? ' scrolled' : ''}`}>
       <div className="topbar-container">
-        <a href="#hero" className="topbar-logo">fekadu<span className="logo-dot" /></a>
+        <a href="#hero" className="topbar-logo-group">
+          <div className="topbar-avatar">
+            {photoUrl ? (
+              <img src={photoUrl} alt="Fekadu" className="topbar-avatar-img" />
+            ) : (
+              <div className="topbar-avatar-fallback">F</div>
+            )}
+            <span className="topbar-avatar-dot" />
+          </div>
+          <span className="topbar-logo">Fekadu T.<span className="logo-dot" /></span>
+        </a>
         <div className="topbar-right">
           {links.map((l) => (
             <a key={l.href} href={l.href} className={`topbar-item${active === l.href ? ' active' : ''}`}>{l.label}</a>

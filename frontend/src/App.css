@@ -200,11 +200,38 @@ img { display: block; max-width: 100%; }
   width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gap);
   display: flex; align-items: center; justify-content: space-between;
 }
+.topbar-logo-group {
+  display: flex; align-items: center; gap: 12px;
+  transition: all 0.4s var(--ease);
+}
+.topbar-logo-group:hover { opacity: 0.85; }
+.topbar-avatar {
+  position: relative; width: 34px; height: 34px; border-radius: 50%;
+  overflow: visible; flex-shrink: 0;
+}
+.topbar-avatar-img {
+  width: 34px; height: 34px; border-radius: 50%; object-fit: cover;
+  border: 1.5px solid rgba(255,255,255,0.08);
+  transition: border-color 0.4s ease;
+}
+.topbar-logo-group:hover .topbar-avatar-img { border-color: rgba(74,158,255,0.3); }
+.topbar-avatar-fallback {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gradient-intense);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+  color: var(--white); border: 1.5px solid rgba(255,255,255,0.08);
+}
+.topbar-avatar-dot {
+  position: absolute; bottom: 0; right: 0; width: 8px; height: 8px;
+  background: var(--emerald); border-radius: 50%;
+  border: 2px solid var(--black);
+  box-shadow: 0 0 8px rgba(48,209,88,0.5);
+}
 .topbar-logo {
   font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
   letter-spacing: -0.5px; color: var(--white); transition: all 0.4s var(--ease);
 }
-.topbar-logo:hover { opacity: 0.8; }
 .topbar-logo .logo-dot {
   display: inline-block; width: 6px; height: 6px; background: var(--blue);
   border-radius: 50%; margin-left: 2px; vertical-align: super;
