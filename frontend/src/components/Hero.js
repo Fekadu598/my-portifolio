@@ -40,25 +40,6 @@ function Particles() {
   );
 }
 
-function CounterRow() {
-  const counters = [
-    { value: '10+', label: 'Projects' },
-    { value: '1+', label: 'Years Exp' },
-    { value: '70+', label: 'Clients' },
-    { value: '99%', label: 'Satisfaction' },
-  ];
-  return (
-    <div className="counter-row">
-      {counters.map((c) => (
-        <div className="counter-item" key={c.label}>
-          <div className="counter-value">{c.value}</div>
-          <div className="counter-label">{c.label}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function Hero({ profile }) {
   const heroRef = useRef(null);
   const name = profile?.name || 'Fekadu';
@@ -125,11 +106,6 @@ export default function Hero({ profile }) {
             </a>
           )}
         </div>
-        <CounterRow />
-      </div>
-      <div className="scroll-indicator">
-        <span className="scroll-indicator-text">Scroll</span>
-        <div className="scroll-indicator-line" />
       </div>
     </section>
   );
