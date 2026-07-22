@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Hero from './components/Hero';
-import Home from './components/Home';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import WorkPage from './pages/WorkPage';
+import SkillsPage from './pages/SkillsPage';
+import ContactPage from './pages/ContactPage';
 
 const API = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
@@ -183,12 +183,14 @@ function PortfolioSite() {
       <div className="grain" />
       <TopBar profile={profile} />
       <main>
-        <Hero profile={profile} />
-        <Home projects={projects} />
-        <About profile={profile} />
-        <Projects projects={projects} />
-        <Skills skills={skills} />
-        <Contact api={API} />
+        <Routes>
+          <Route path="/" element={<><Hero profile={profile} /><HomePage /></>} />
+          <Route path="/about" element={<AboutPage profile={profile} />} />
+          <Route path="/work" element={<WorkPage projects={projects} />} />
+          <Route path="/skills" element={<SkillsPage skills={skills} />} />
+          <Route path="/contact" element={<ContactPage api={API} />} />
+          <Route path="*" element={<><Hero profile={profile} /><HomePage /></>} />
+        </Routes>
       </main>
       <Footer profile={profile} />
     </>
@@ -198,9 +200,7 @@ function PortfolioSite() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<PortfolioSite />} />
-      </Routes>
+      <PortfolioSite />
     </BrowserRouter>
   );
 }
