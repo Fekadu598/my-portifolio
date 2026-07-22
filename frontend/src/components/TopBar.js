@@ -22,6 +22,7 @@ export default function TopBar({ profile }) {
   }, []);
 
   const links = [
+    { href: '#hero', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Work' },
     { href: '#skills', label: 'Skills' },
