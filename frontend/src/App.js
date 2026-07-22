@@ -184,7 +184,7 @@ function PortfolioSite() {
       <TopBar profile={profile} />
       <main>
         <Hero profile={profile} />
-        <Home />
+        <Home projects={projects} />
         <About profile={profile} />
         <Projects projects={projects} />
         <Skills skills={skills} />
